@@ -19,9 +19,13 @@ list2 = []
 for i in list:
     list2.append((len(i), i))
 
+# 아래 두가지 방법 모두 가능
+list2.sort(key=lambda x: (x[0], x[1]))
+
 result = sorted(list2)
 
-for a, b in result:
+
+for a, b in list2:
     print(b)
 
 

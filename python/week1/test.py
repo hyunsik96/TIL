@@ -1,13 +1,6 @@
-a = ['abc', 'aaa']
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n-1)
 
-
-def two_sort(a, b):
-    if len(a) == len(b):
-        k = [a, b]
-        k.sort()
-        if k[0] == a: return True
-    return False
-
-if two_sort('abc', 'aaa'):
-    print('True')
-else: print('False')
+print(factorial(5))
