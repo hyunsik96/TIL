@@ -1,28 +1,36 @@
 import sys
 
-n = int(sys.stdin.readline())
-safety = [None] * n
+input = sys.stdin.readline
 
-for i in range(n):
-    safety[i] = list(map(int, sys.stdin.readline().split()))
+N = int(input().rstrip())
+A = [list(map(int, list(input().rstrip()))) for _ in range(N)]
 
-# flag = [[False] *n]*n
-# o = [False] *n
-flag = [[]*n]*n
-# for i in range(n):
-#     flag.append(o)
+def is_full_with(a: list):
+    n = len(a)
+    num = a[0][0]
+    for i in range(n):
+        for j in range(n):
+            if a[i][j] != num:
+                return -1
+    return num
 
-rain = 5
+def sol(a: list):
+    na = len(a) // 2
+    
+    if is_full_with(a) == 0:
+        print(0, end='')
+        return
 
-print(flag)
+    elif is_full_with(a) == 1:
+        print(1, end ='')
+        return   
 
-# for d in range(n):
-#     for k in range(n):
-#         if safety[d][k] > rain:
-#             print(str(safety[d][k])+', d: '+str(d)+', k: '+str(k))
-#             flag[d][k] = True
-#             print(flag[d][k])
-flag[0][0] = True
-print(flag)
-area = [[True]*n for bfde in range(n)]
-print(area)
+    else:
+        print ('(', end='')
+        sol([i[:na] for i in a[:na]])
+        sol([i[na:] for i in a[:na]])
+        sol([i[:na] for i in a[na:]])
+        sol([i[na:] for i in a[na:]])
+        print(')', end='')
+
+sol(A)
