@@ -1,3 +1,6 @@
+# 각 노드에서 find를 통해 최소 조상을 찾고, 떨어진 두 노드를 연결할 때 작은 값을 부여한다.
+# union 과정에서 연결하는 두 노드의 값만 최신화하기에 연결된 값들은 다시 find 로 불러 확인해야 업데이트 가능하다.
+
 import sys
 input = sys.stdin.readline
 
@@ -20,7 +23,6 @@ parent = list(range(n+1))
 for _ in range(m):
     a, b = map(int, input().split())
     union(a, b)
-    
 
 ans = -1
 

@@ -23,11 +23,12 @@ print(cnt_within_range(arr, 9, 9)) # 1
 print(cnt_within_range(arr, 4, 7)) # 6
 
 
-
+"""
 a = [60, 70, 80, 90]
 bisect.insort(a, 85)
 a
 [60, 70, 80, 85, 90]
+"""
 
 def bin_search(a, key):
     """시퀀스 a에서 key와 일치하는 원소를 이진 검색"""
